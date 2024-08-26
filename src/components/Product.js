@@ -38,8 +38,8 @@ if (product===null) return <Shimmer/>;
     <div className='mt-12 mb-10'>
     <div className='flex flex-wrap'>
       {product.map((res)=><div key={res.info.id}>
-        <div className='w-[220px] min-h-[160px] bg-slate-200 mt-5 ml-4 rounded-md flex flex-col flex-wrap items-center justify-center '>
-        <img className='w-[220px] h-[160]' src={MENU_ITEM_IMG_URL + res.info.cloudinaryImageId} alt="" />
+        <div className='w-[220px] min-h-[160px] mt-5 ml-4 rounded-md flex flex-col flex-wrap items-center justify-center '>
+        <img className='w-[220px] h-[160] rounded-md' src={MENU_ITEM_IMG_URL + res.info.cloudinaryImageId} alt="" />
         <h2>{res.info.name}</h2>
            <div className='flex justify-between items-center'>
              <p>{res.info.costForTwo}</p>
