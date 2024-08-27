@@ -3,10 +3,14 @@ import {MENU_ITEM_IMG_URL} from '../utils/constants'
 import { useDispatch } from 'react-redux'
 import { add } from '../store/cartSlice'
 import { Shimmer } from './Shimmer'
+ 
 
 const Product = () => {
     const [product, setProduct]=useState(null)
+    const [filteredProduct, setFilteredProduct]=useState(null)
+    const [searchProduct, setSearchProduct]=useState()
     const dispatch = useDispatch()
+    
 
     const fetchProduct = async () => {
         try {
@@ -36,14 +40,25 @@ const Product = () => {
 if (product===null) return <Shimmer/>;
   return (
     <div className='mt-12 mb-10'>
+      <div className='bg-white ml-4'>
+        <input value={searchProduct} onChange={(e)=>setSearchProduct(e.target.value)} type="text" placeholder='search the food' className='
+        outline-none p-1 pl-1 ml-2 w-[130px] ' />
+        <button onClick={()=>{
+          const filteredRestaurants =product.filter((prodinfo)=>prodinfo.info.name.toLowerCase().includes(searchProduct.toLowerCase()));
+          setFilteredProduct(filteredRestaurants);
+          console.log(filteredProduct)
+        }  
+        } className='bg-transparent ml-0'>Search</button>
+      </div>
+      
     <div className='flex flex-wrap'>
       {product.map((res)=><div key={res.info.id}>
         <div className='w-[220px] min-h-[160px] mt-5 ml-4 rounded-md flex flex-col flex-wrap items-center justify-center '>
-        <img className='w-[220px] h-[160] rounded-md' src={MENU_ITEM_IMG_URL + res.info.cloudinaryImageId} alt="" />
-        <h2>{res.info.name}</h2>
+               <img className='w-[220px] h-[160] rounded-md' src={MENU_ITEM_IMG_URL + res.info.cloudinaryImageId} alt="" />
+               <h2>{res.info.name}</h2>
            <div className='flex justify-between items-center'>
              <p>{res.info.costForTwo}</p>
-          </div>
+           </div>
         <button onClick={()=>AddToCart(res)} className='bg-blue-500 rounded-md px-4'>Add</button>
 
       </div>
@@ -56,3 +71,4 @@ if (product===null) return <Shimmer/>;
 }
 
 export default Product
+ 
