@@ -9,7 +9,7 @@ const Header = () => {
   return (
     <div className='bg-green-400 fixed w-full top-0'> 
       <div className='flex items-center justify-between h-11 mx-5 '>
-        <h2>Foodiee</h2>
+        <h2 className='font-quicksand font-semibold'>Foodiee</h2>
          
        
         <div className='flex justify-around '>

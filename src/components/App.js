@@ -5,16 +5,17 @@ import {Provider} from 'react-redux'
 import Body from './Body'
 import Header from './Header'
 import Error from './Error'
-
 import store from '../store/store'
 import Cart from './Cart'
 import Footer from './Footer'
+ 
 
 const App = () => {
   return (
     <div>
       <Provider store={store}>
         <Header/>
+         
       <Outlet/>
       <Footer/>
       </Provider>
