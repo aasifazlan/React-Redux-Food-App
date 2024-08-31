@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom/client'
 import {createBrowserRouter, RouterProvider, Outlet} from 'react-router-dom'
 import {Provider} from 'react-redux'
 import Body from './Body'
-import Header from './Header'
+ import Header from './Header'
 import Error from './Error'
 import store from '../store/store'
 import Cart from './Cart'
@@ -14,7 +14,7 @@ const App = () => {
   return (
     <div>
       <Provider store={store}>
-        <Header/>
+         <Header/>
          
       <Outlet/>
       <Footer/>

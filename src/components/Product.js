@@ -72,8 +72,9 @@ if (product===null) return <Shimmer/>;
         }} className='ml-5'>Top Rated Restaurants</button>
        
       </div>
-
-      <div className='w-full h-17 flex overflow-x-auto space-x-4 '>
+      <h1 className='ml-5 font-bold text-3xl mt-7'>What's on your mind?  </h1>
+      <div className='w-full h-17 flex overflow-x-auto space-x-4 py-4 '>
+        
         {product.map((resCrd)=><div key={resCrd.info.id} className='flex flex-col shrink-0 m-3'>
         <img className='w-[150px] h-[120px] rounded-md' src={MENU_ITEM_IMG_URL + resCrd.info.cloudinaryImageId} alt="" />
         <h1 className='max-w-[150px] truncate text-center'>{resCrd.info.cuisines}</h1>
@@ -83,7 +84,7 @@ if (product===null) return <Shimmer/>;
      
       
       
-    <div className='flex flex-wrap'>
+    <div className='flex flex-wrap mt-4'>
       {product.map((res)=><div key={res.info.id}>
         <div className='w-[220px] min-h-[160px] mt-5 ml-4 rounded-md flex flex-col flex-wrap items-center justify-center '>
                <img className='w-[220px] h-[160] rounded-md' src={MENU_ITEM_IMG_URL + res.info.cloudinaryImageId} alt="" />
@@ -91,10 +92,14 @@ if (product===null) return <Shimmer/>;
            <div className='flex justify-between items-center'>
              <p className=''>{res.info.costForTwo}</p>
              <p className='right-0 ml-4'>{res.info.avgRating}  </p>
+             
+             <img src="" alt="" />
              <img src="" alt="" />
            </div>
-        <button onClick={()=>AddToCart(res)} className='bg-blue-500 rounded-md px-4'>Add</button>
-
+           <div className='flex justify-between items-center'>
+            <p className='mr-6'>{res.info.sla.deliveryTime}  </p>
+            <button onClick={()=>AddToCart(res)} className='bg-blue-500 rounded-md px-4'>Add</button>
+            </div>
       </div>
 
       </div>)}

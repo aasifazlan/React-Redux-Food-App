@@ -8,7 +8,7 @@ const Header = () => {
   const cartItems = useSelector(state => state.cart)
   return (
     <div className='bg-green-400 fixed w-full top-0'> 
-      <div className='flex items-center justify-between h-11 mx-5 '>
+      <div className='flex items-center justify-between h-11 mx-5 text-center sm:text-left '>
         <h2 className='font-quicksand font-semibold'>Foodiee</h2>
          
        
